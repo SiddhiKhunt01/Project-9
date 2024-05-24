@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1 class="head"><a href="">FORM VALIDATION</a></h1>
+<form id="form">
+    <div>
+        <label>Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+    </div>
+    <button type="submit"><span></span>Submit</button>
+</form>
+<form id="logform" action="#" onsubmit="return false;"></form>
+
+<script>
+    document.getElementById("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password.length < 8 || password.length > 16) {
+            alert("Password should be between 8 to 16 characters.");
+            return false;
+        }
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return false;
+        }
+        alert("Form submitted successfully!!!");
+        window.location.href = "login.html";
+    });
+</script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
